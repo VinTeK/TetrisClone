@@ -40,7 +40,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>C:\MyLibraries\SFML-2.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\MyLibraries\SFML-2.2\lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\MyLibraries\SFML-2.2\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
