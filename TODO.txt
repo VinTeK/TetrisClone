@@ -1,0 +1,14 @@
+Tetris standards:
+http://tetrisconcept.net/wiki/Tetris_Guideline
+http://tetrisconcept.net/wiki/SRS
+
+
+- line clearing and then have the above blocks fall into empty spaces.
+- rendering TetriminoQueue GUI
+- rendering Scoreboard GUI
+- and some other shit I haven't thought of yet
+
+
+- ghost pieces?
+- Tetrimino holds
+- window resizing
