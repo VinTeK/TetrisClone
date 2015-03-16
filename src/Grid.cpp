@@ -17,6 +17,8 @@ Grid::Grid(TetriminoQueue& queue) : m_dim(sf::Vector2i(GRID_W, GRID_H)), m_queue
 
 void Grid::clearLines()
 {
+	// Scan through the entire grid to find lines need to be cleared
+	// This algorithm could be improved
 	for (int row = 0; row < GRID_H; ++row) 
 	{
 		bool bingo = true;
@@ -55,7 +57,7 @@ void Grid::applyGravity(int cleared_row)
 		{
 			if (m_grid[row][col] != Block::NIL)
 			{
-				// move down the block by 1
+				// move down the block by one row
 				m_grid[row + 1][col] = m_grid[row][col];
 				m_grid[row][col] = Block::NIL;
 			}
