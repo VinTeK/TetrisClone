@@ -37,7 +37,7 @@ public:
 	void softDrop();
 	void hardDrop();
 
-	/* Falling piece collision detection. */
+	/* Falling piece collision detection. 1 -> clockwise, -1 -> counter-clockwise */
 	bool willCollide(const sf::Vector2i& offset, int rotation = 0) const;
 
 private:
