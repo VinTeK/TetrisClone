@@ -29,6 +29,12 @@ public:
 	/** Clears lines in the grid and then applies gravity. */
 	void clearLines();
 
+	/* Empty the line blocks. */
+	void clearLine(int target_row);
+
+	/* Applies gravity to all blocks above the cleared row (moving down all blocks by 1) */
+	void applyGravity(int cleared_row);
+
 	/* Falling piece manipulation functions. */
 	void moveLeft();
 	void moveRight();

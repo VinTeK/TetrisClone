@@ -17,7 +17,50 @@ Grid::Grid(TetriminoQueue& queue) : m_dim(sf::Vector2i(GRID_W, GRID_H)), m_queue
 
 void Grid::clearLines()
 {
-	// TODO
+	for (int row = 0; row < GRID_H; ++row) 
+	{
+		bool bingo = true;
+
+		for (int col = 0; col < GRID_W; ++col) 
+		{
+			// if this row has any empty block, then check next row
+			if (m_grid[row][col] == Block::NIL) 
+			{
+				bingo = false;
+				break;
+			}
+		}
+
+		if (bingo)
+		{
+			clearLine(row);
+			applyGravity(row);
+		}
+	}
+}
+
+void Grid::clearLine(int target_row)
+{
+	for (int col = 0; col < GRID_W; ++col)
+	{
+		m_grid[target_row][col] = Block::NIL;
+	}
+}
+
+void Grid::applyGravity(int cleared_row)
+{
+	for (int row = cleared_row - 1; row >= 0; --row)
+	{
+		for (int col = 0; col < GRID_W; ++col)
+		{
+			if (m_grid[row][col] != Block::NIL)
+			{
+				// move down the block by 1
+				m_grid[row + 1][col] = m_grid[row][col];
+				m_grid[row][col] = Block::NIL;
+			}
+		}
+	}
 }
 
 
@@ -156,6 +199,9 @@ void Grid::mergeFalling()
 				m_grid[row + pos.y][col + pos.x] = shape[row][col];
 		}
 	}
+
+	clearLines();
+
 	// destroy falling piece as it is no longer needed
 	m_falling.reset();
 	// get new piece from queue
