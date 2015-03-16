@@ -7,7 +7,7 @@
 
 ## ToDo
 
-- [ ] line clearing and then have the above blocks fall into empty spaces.
+- [x] line clearing and then have the above blocks fall into empty spaces.
 - [ ] GAME OVER!
 - [ ] rendering TetriminoQueue GUI
 - [ ] rendering Scoreboard GUI
