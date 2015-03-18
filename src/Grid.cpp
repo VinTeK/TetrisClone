@@ -41,6 +41,7 @@ void Grid::clearLines()
 	}
 }
 
+
 void Grid::clearLine(int target_row)
 {
 	for (int col = 0; col < GRID_W; ++col)
@@ -48,6 +49,7 @@ void Grid::clearLine(int target_row)
 		m_grid[target_row][col] = Block::NIL;
 	}
 }
+
 
 void Grid::applyGravity(int cleared_row)
 {

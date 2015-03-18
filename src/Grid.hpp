@@ -20,7 +20,7 @@ namespace
 class Grid
 {
 public:
-	/* A grid must be connected with a queue to receive new falling pieces. */
+	/** A grid must be connected with a queue to receive new falling pieces. */
 	Grid(TetriminoQueue&);
 
 	const BlockMatrix& grid() const { return m_grid; }
@@ -29,10 +29,7 @@ public:
 	/** Clears lines in the grid and then applies gravity. */
 	void clearLines();
 
-	/* Empty the line blocks. */
-	void clearLine(int target_row);
-
-	/* Applies gravity to all blocks above the cleared row (moving down all blocks by 1) */
+	/** Applies gravity to all blocks above the cleared row (moving down all blocks by 1) */
 	void applyGravity(int cleared_row);
 
 	/* Falling piece manipulation functions. */
@@ -43,10 +40,12 @@ public:
 	void softDrop();
 	void hardDrop();
 
-	/* Falling piece collision detection. 1 -> clockwise, -1 -> counter-clockwise */
+	/** Falling piece collision detection. 1 -> clockwise, -1 -> counter-clockwise */
 	bool willCollide(const sf::Vector2i& offset, int rotation = 0) const;
 
 private:
+	/** Empty the line blocks. */
+	void clearLine(int target_row);
 	void mergeFalling();
 
 private:
