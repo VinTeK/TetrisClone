@@ -8,7 +8,7 @@
 Renderer::Renderer(sf::RenderWindow& window)
 	: m_window(&window)
 	, m_blockSprites(Block::NUM_OF_BLOCKS)
-	, m_gridView(sf::FloatRect(0, 0, GRID_W * GRID_SCALE, GRID_H * GRID_SCALE))
+	, m_gridView(sf::FloatRect(0, 2 * GRID_SCALE, GRID_W * GRID_SCALE, (GRID_H - 2) * GRID_SCALE))
 {
 	/* Load game assets. */
 	m_textures.load("../res/textures/tetrimino_blocks.png", "tetrimino-blocks");
@@ -41,7 +41,7 @@ Renderer::Renderer(sf::RenderWindow& window)
 	/* Calculate how much a block sprite will have to be scaled down so that GRID_W x GRID_H
 	blocks will fit inside the grid view.  */
 	float spriteWidthScale = m_gridView.getSize().x / (BLOCK_SIZE * GRID_W);
-	float spriteHeightScale = m_gridView.getSize().y / (BLOCK_SIZE * GRID_H);
+	float spriteHeightScale = m_gridView.getSize().y / (BLOCK_SIZE * (GRID_H-2));
 	sf::Vector2f blockScaling(spriteWidthScale, spriteHeightScale);
 	
 	/* Calculate side length of sprite after scaling to use as an offset. */

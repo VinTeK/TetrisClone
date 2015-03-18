@@ -11,9 +11,10 @@ class TetriminoQueue;
 
 namespace
 {
-	/* Default Tetris grid dims as the traditional 10 wide x 20 tall. */
+	/* Default Tetris grid dims as the traditional 10 wide x 22 tall.
+	The last two rows are hidden. */
 	const int GRID_W = 10;
-	const int GRID_H = 20;
+	const int GRID_H = 22;
 }
 
 
