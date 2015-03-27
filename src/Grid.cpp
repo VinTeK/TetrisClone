@@ -133,9 +133,20 @@ void Grid::rotateCW()
 void Grid::softDrop()
 {
 	if (!willCollide(sf::Vector2i(0, 1)))
+	{
 		m_falling->dropOne();
+	}
+	else if (reachTop())
+	{
+		// If the falling piece will collide and reach top of the grid, 
+		// then clear the queue and indicate the stack is full.
+		m_queue->clear();
+		stack_full = true;
+	}
 	else
+	{
 		mergeFalling();
+	}
 }
 
 
@@ -144,6 +155,16 @@ void Grid::hardDrop()
 	while (!willCollide(sf::Vector2i(0, 1)))
 		m_falling->dropOne();
 	mergeFalling();
+}
+
+bool Grid::reachTop()
+{
+	return m_falling->pos().y <= 1;
+}
+
+bool Grid::stackFull()
+{
+	return stack_full;
 }
 
 

@@ -44,10 +44,16 @@ public:
 	/** Falling piece collision detection. 1 -> clockwise, -1 -> counter-clockwise */
 	bool willCollide(const sf::Vector2i& offset, int rotation = 0) const;
 
+	/* Detect whether the stack of Tetriminos is full. */
+	bool stackFull();
+
 private:
 	/** Empty the line blocks. */
 	void clearLine(int target_row);
 	void mergeFalling();
+
+	/* Detect if the falling piece is reaching top of the grid. */
+	bool reachTop();
 
 private:
 	sf::Vector2i m_dim; // (x = width, y = height)
@@ -55,4 +61,5 @@ private:
 	TetriminoQueue* m_queue;
 
 	std::unique_ptr<Tetrimino> m_falling;
+	bool stack_full = false;
 };

@@ -12,6 +12,11 @@ TetriminoQueue::TetriminoQueue() : m_randint(1, Block::NUM_OF_BLOCKS-1) /* NOT b
 		m_queue.push_back(std::unique_ptr<Tetrimino>(new Tetrimino(static_cast<Block::Type>(i))));
 }
 
+void TetriminoQueue::clear()
+{
+	m_queue.clear();
+}
+
 
 std::unique_ptr<Tetrimino> TetriminoQueue::pop()
 {

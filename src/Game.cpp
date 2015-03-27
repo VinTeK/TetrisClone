@@ -22,6 +22,12 @@ void Game::run()
 	/* Game stops running when main RenderWindow is closed. */
 	while (m_window.isOpen())
 	{
+		/* If Tetriminos stack reaches the top, stop the game. */
+		if (m_grid.stackFull())
+		{
+			m_window.close();
+		}
+
 		/* If a turn has ended, process the end of a turn. */
 		if (m_clock.getElapsedTime().asSeconds() >= m_turnTime)
 		{

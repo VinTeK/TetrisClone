@@ -190,9 +190,9 @@ Tetrimino::Tetrimino(Block::Type type) : m_type(type), m_rotstate(0)
 {
 	/* Spawn center horizontal, one row down from absolute top to just barely peek out. */
 	if (type != Block::O)
-		m_pos = sf::Vector2i(GRID_W/2 - 2, 1);
+		m_pos = sf::Vector2i(GRID_W/2 - 2, 0);
 	else
-		m_pos = sf::Vector2i(GRID_W/2 - 1, 1); // O needs to be slightly shifted
+		m_pos = sf::Vector2i(GRID_W/2 - 1, 0); // O needs to be slightly shifted
 }
 
 

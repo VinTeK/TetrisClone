@@ -22,6 +22,7 @@ class TetriminoQueue
 public:
 	TetriminoQueue();
 
+	void clear();
 	std::unique_ptr<Tetrimino> pop();
 
 private:
